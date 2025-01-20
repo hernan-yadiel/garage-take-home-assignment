@@ -33,7 +33,7 @@ export default function RequestCallCard({ className }: Props): ReactElement {
         </div>
         <div className="flex items-center justify-center space-x-2 px-6 py-3">
           <UsersIcon className="h-5 w-5 fill-white/75" />
-          <p className="text-sm/normal font-light tracking-wide text-black text-white/75">
+          <p className="text-sm/normal font-light tracking-wide text-black text-white/90">
             Speak directly with the seller
           </p>
         </div>
