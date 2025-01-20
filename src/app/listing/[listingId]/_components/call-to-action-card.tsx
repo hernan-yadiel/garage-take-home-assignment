@@ -10,18 +10,18 @@ interface Props {
   className: string;
 }
 
-export default function CTACard({
+export default function CallToActionCard({
   sellingPrice,
   className,
 }: Props): ReactElement {
-  const formattedSellingPrice = formatCurrency(sellingPrice);
+  const priceLabel = formatCurrency(sellingPrice);
   const priceExceedsThreshold = sellingPrice > 10000;
 
   return (
     <Card className={cn(className)}>
       <div className="p-6">
         <h3 className="mb-1 text-xl/normal font-medium text-black md:text-2xl/normal">
-          {formattedSellingPrice}
+          {priceLabel}
         </h3>
         <p className="text-base/normal font-light tracking-wide text-neutral-500">
           Freight, financing, and warranty available

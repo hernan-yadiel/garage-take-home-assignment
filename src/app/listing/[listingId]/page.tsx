@@ -3,7 +3,7 @@ import ListingImageCarousel from './_components/listing-image-carousel';
 import Seller from './_components/seller';
 import getStateName from './_utils/getStateName';
 import Separator from '@/components/separator';
-import CTACard from './_components/cta-card';
+import CallToActionCard from './_components/call-to-action-card';
 import MoreActionsCard from './_components/more-actions-card';
 import RequestCallCard from './_components/request-call-card';
 import ProductDetails from './_components/product-details';
@@ -61,7 +61,10 @@ export default async function Listing({ params }: ListingPageProps) {
               isVerified={true}
             />
             <Separator variant="end-faded" className="mb-3" />
-            <CTACard className="mb-3" sellingPrice={listing.sellingPrice} />
+            <CallToActionCard
+              className="mb-3"
+              sellingPrice={listing.sellingPrice}
+            />
             <MoreActionsCard />
             <RequestCallCard className="mt-3" />
           </div>
