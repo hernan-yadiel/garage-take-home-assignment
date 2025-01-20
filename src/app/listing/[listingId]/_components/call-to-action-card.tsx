@@ -20,7 +20,7 @@ export default function CallToActionCard({
   return (
     <Card className={cn(className)}>
       <div className="p-6">
-        <h3 className="mb-1 text-xl/normal font-medium text-black md:text-2xl/normal">
+        <h3 className="mb-1 text-xl/normal font-semibold text-black md:text-2xl/normal">
           {priceLabel}
         </h3>
         <p className="text-base/normal font-light tracking-wide text-neutral-500">
