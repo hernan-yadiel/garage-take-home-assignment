@@ -15,6 +15,8 @@ export default function CTACard({
   className,
 }: Props): ReactElement {
   const formattedSellingPrice = formatCurrency(sellingPrice);
+  const priceExceedsThreshold = sellingPrice > 10000;
+
   return (
     <Card className={cn(className)}>
       <div className="p-6">
@@ -27,14 +29,16 @@ export default function CTACard({
         <Separator className="my-3" />
         <div className="flex flex-col gap-3">
           <Button size="lg" variant="cta">
-            {sellingPrice > 10000 ? 'Contact Seller' : 'Buy now'}
+            {priceExceedsThreshold ? 'Contact Seller' : 'Buy now'}
           </Button>
           <Button size="lg" variant="outline">
             Make Offer
           </Button>
-          <Button size="lg" variant="outline">
-            Add to watchlist
-          </Button>
+          {!priceExceedsThreshold && (
+            <Button size="lg" variant="outline">
+              Contact Seller
+            </Button>
+          )}
         </div>
       </div>
     </Card>
