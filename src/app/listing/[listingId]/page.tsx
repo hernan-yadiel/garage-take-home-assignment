@@ -44,7 +44,17 @@ export default async function Listing({ params }: ListingPageProps) {
               />
             </div>
             <Separator variant="end-faded" className="mt-6" />
-            <ProductDetails />
+            <ProductDetails
+              hasServiceRecords={listing.hasServiceRecords}
+              hasPumpTest={listing.hasPumpTest}
+              pumpSize={listing.pumpSize}
+              mileage={listing.mileage}
+              tankSize={listing.tankSize}
+              itemLength={listing.itemHeight}
+              itemAge={listing.itemAge}
+              itemBrand={listing.itemBrand}
+              itemHeight={listing.itemWeight}
+            />
             <Separator variant="end-faded" className="my-6" />
             <ListingDescription description={listing.listingDescription} />
           </div>
