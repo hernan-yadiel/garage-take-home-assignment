@@ -24,15 +24,16 @@ export default function CTACard({
                 </p>
                 <Separator className="my-3" />
                 <div className="flex flex-col gap-3">
-                    <Button size="cta">Contact Seller</Button>
-                    <Button size="cta" variant="secondary">
+                    <Button size="lg" variant="cta">
+                        Contact Seller
+                    </Button>
+                    <Button size="lg" variant="outline">
                         Make Offer
                     </Button>
-                    <Button size="cta" variant="secondary">
+                    <Button size="lg" variant="outline">
                         Add to watchlist
                     </Button>
                 </div>
-                <Separator className="my-3" />
             </div>
         </Card>
     )
