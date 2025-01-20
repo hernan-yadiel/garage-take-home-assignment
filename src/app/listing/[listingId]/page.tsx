@@ -22,8 +22,6 @@ export default async function Listing({ params }: ListingPageProps) {
   );
   const listing: Listing = await listingResponse.json();
 
-  console.log(listing);
-
   const userResponse = await fetch(
     `${process.env.API_URL}/users/${listing.userId}`
   );
