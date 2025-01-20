@@ -7,18 +7,30 @@ interface Props {
 export default function ListingDescription({
     description,
 }: Props): ReactElement {
-    // Function to format the description
     const formatDescription = (text: string): string => {
         return text
             .replace(/\n/g, '<br />') // Replace line breaks with HTML <br />
-            .replace(/Other Details:/g, '<strong>Other Details:</strong>') // Bold specific sections
-            .replace(/Condition:/g, '<strong>Condition:</strong>') // Bold specific sections
+            .replace(
+                /Other Details:/g,
+                '<strong class="font-medium text-black">Other Details:</strong>'
+            ) // Bold specific sections
+            .replace(
+                /Condition:/g,
+                '<strong class="font-medium text-black">Condition:</strong>'
+            ) // Bold specific sections
     }
 
     return (
-        <div
-            className="text-sm leading-6" // Add Tailwind or custom styles for good readability
-            dangerouslySetInnerHTML={{ __html: formatDescription(description) }}
-        />
+        <>
+            <h3 className="mb-1 text-lg/normal font-medium">
+                Item description from the seller
+            </h3>
+            <div
+                className="text-sm font-extralight leading-6"
+                dangerouslySetInnerHTML={{
+                    __html: formatDescription(description),
+                }}
+            />
+        </>
     )
 }
