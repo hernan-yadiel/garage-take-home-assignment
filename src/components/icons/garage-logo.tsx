@@ -1,14 +1,19 @@
+import { cn } from '@/lib/utils'
+
 interface Props {
     width?: number
     height?: number
+    className?: string
 }
 
 export default function GarageLogo({
     width = 80,
     height = 44,
+    className,
 }: Props): React.ReactElement {
     return (
         <svg
+            className={cn(className)}
             width={width}
             height={height}
             viewBox="0 0 707 187"
