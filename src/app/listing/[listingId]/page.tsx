@@ -47,13 +47,12 @@ export default async function Listing({ params }: ListingPageProps) {
                                 slidesPerView={1}
                             />
                         </div>
-                        <Separator className="mt-6" />
+                        <Separator variant="end-faded" className="mt-6" />
                         <ProductDetails />
-                        <Separator className="my-6" />
+                        <Separator variant="end-faded" className="my-6" />
                         <ListingDescription
                             description={listing.listingDescription}
                         />
-                        <Separator className="mt-6" />
                     </div>
                     {/* Some Details */}
                     <div>
@@ -64,13 +63,13 @@ export default async function Listing({ params }: ListingPageProps) {
                             Located in {getStateName(listing.addressState)}{' '}
                             <span> • </span> Ships nationwide
                         </p>
-                        <Separator className="mt-3" />
+                        <Separator variant="end-faded" className="mt-3" />
                         <Seller
                             addressState={listing.addressState}
                             displayName={user.displayName}
                             isVerified={true}
                         />
-                        <Separator className="mb-3" />
+                        <Separator variant="end-faded" className="mb-3" />
                         <CTACard
                             className="mb-3"
                             sellingPrice={formattedSellingPrice}
@@ -80,6 +79,7 @@ export default async function Listing({ params }: ListingPageProps) {
                     </div>
                 </div>
             </div>
+            <Separator className="my-3" />
         </>
     )
 }
