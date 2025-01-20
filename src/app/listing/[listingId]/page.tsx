@@ -8,6 +8,11 @@ import RequestCallCard from './_components/request-call-card';
 import ProductDetails from './_components/product-details';
 import ListingDescription from './_components/listing-description';
 import type { Listing, User } from './types';
+import { Suspense } from 'react';
+import RelatedListing from './_components/related-listing';
+// import { simulateNetworkDelay } from './_utils/simulate-network-delay';
+
+export const dynamic = 'force-dynamic';
 
 interface ListingPageProps {
   params: Promise<{ listingId: string }>;
@@ -26,9 +31,11 @@ export default async function Listing({ params }: ListingPageProps) {
   );
   const user: User = await userResponse.json();
 
+  // Turn this on to test loading state of this component
+  // await simulateNetworkDelay(2000);
+
   return (
     <>
-      {/* Main container  */}
       <div className="mx-auto mt-6 max-w-screen-xl px-6">
         <div className="flex gap-8">
           <div id="listing carousel">
@@ -43,7 +50,6 @@ export default async function Listing({ params }: ListingPageProps) {
             <Separator variant="end-faded" className="my-6" />
             <ListingDescription description={listing.listingDescription} />
           </div>
-          {/* Some Details */}
           <div>
             <h1 className="font-sans text-3xl font-bold">
               {listing.listingTitle}
@@ -69,6 +75,9 @@ export default async function Listing({ params }: ListingPageProps) {
         </div>
       </div>
       <Separator className="my-3" />
+      <Suspense fallback={<p className="text-xl font-bold">Loading...</p>}>
+        <RelatedListing currentListingId={listingId} />
+      </Suspense>
     </>
   );
 }
