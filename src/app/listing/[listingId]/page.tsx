@@ -1,4 +1,3 @@
-import ListingHeader from './_components/listing-header';
 import ListingImageCarousel from './_components/listing-image-carousel';
 import Seller from './_components/seller';
 import getStateName from './_utils/getStateName';
@@ -29,7 +28,6 @@ export default async function Listing({ params }: ListingPageProps) {
 
   return (
     <>
-      <ListingHeader />
       {/* Main container  */}
       <div className="mx-auto mt-6 max-w-screen-xl px-6">
         <div className="flex gap-8">
