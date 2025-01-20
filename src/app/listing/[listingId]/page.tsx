@@ -12,8 +12,6 @@ import { Suspense } from 'react';
 import RelatedListing from './_components/related-listing';
 // import { simulateNetworkDelay } from './_utils/simulate-network-delay';
 
-export const dynamic = 'force-dynamic';
-
 interface ListingPageProps {
   params: Promise<{ listingId: string }>;
 }
