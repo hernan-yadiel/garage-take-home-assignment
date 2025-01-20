@@ -27,11 +27,6 @@ export default async function Listing({ params }: ListingPageProps) {
   );
   const user: User = await userResponse.json();
 
-  const formattedSellingPrice = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  }).format(listing.sellingPrice);
-
   return (
     <>
       <ListingHeader />
@@ -66,7 +61,7 @@ export default async function Listing({ params }: ListingPageProps) {
               isVerified={true}
             />
             <Separator variant="end-faded" className="mb-3" />
-            <CTACard className="mb-3" sellingPrice={formattedSellingPrice} />
+            <CTACard className="mb-3" sellingPrice={listing.sellingPrice} />
             <MoreActionsCard />
             <RequestCallCard className="mt-3" />
           </div>
