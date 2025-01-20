@@ -1,5 +1,10 @@
 import type { ReactElement } from 'react';
 import { cn } from '@/lib/utils';
+import formatDimension from '../_utils/formatDimensions';
+
+const decimalFormatter = new Intl.NumberFormat('en-US', {
+  style: 'decimal',
+});
 
 interface Props {
   itemAge: number | null;
@@ -26,6 +31,21 @@ export default function ProductDetails({
   hasServiceRecords,
   hasPumpTest,
 }: Props): ReactElement {
+  let formattedMiles: string | null = null;
+  if (mileage) {
+    formattedMiles = decimalFormatter.format(mileage);
+  }
+
+  let formattedHeight: string | null = null;
+  if (itemHeight) {
+    formattedHeight = formatDimension(itemHeight);
+  }
+
+  let formattedLength: string | null = null;
+  if (itemLength) {
+    formattedLength = formatDimension(itemLength);
+  }
+
   return (
     <div className={cn('py-6', className)}>
       <div className="grid grid-cols-2 gap-4">
@@ -85,7 +105,7 @@ export default function ProductDetails({
             </div>
           </div>
         )}
-        {itemLength && (
+        {formattedLength && (
           <div className="flex items-start space-x-2 md:items-center md:space-x-4">
             <div className="stroke-1.5 mt-1 h-5 w-5 flex-shrink-0 text-black md:mt-0">
               <svg
@@ -129,12 +149,12 @@ export default function ProductDetails({
                 Length
               </p>
               <p className="undefined text-base/normal font-light tracking-wide text-black">
-                {`${Math.floor(itemLength / 12)} ${itemLength % 12}`}
+                {formattedLength}
               </p>
             </div>
           </div>
         )}
-        {itemHeight && (
+        {formattedHeight && (
           <div className="flex items-start space-x-2 md:items-center md:space-x-4">
             <div className="stroke-1.5 mt-1 h-5 w-5 flex-shrink-0 text-black md:mt-0">
               <svg
@@ -178,7 +198,7 @@ export default function ProductDetails({
                 Height
               </p>
               <p className="undefined text-base/normal font-light tracking-wide text-black">
-                {`${Math.floor(itemHeight / 12)}' ${itemHeight % 12}"`}
+                {formattedHeight}
               </p>
             </div>
           </div>
@@ -279,7 +299,7 @@ export default function ProductDetails({
             </div>
           </div>
         )}
-        {mileage && (
+        {formattedMiles && (
           <div className="flex items-start space-x-2 md:items-center md:space-x-4">
             <div className="stroke-1.5 mt-1 h-5 w-5 flex-shrink-0 text-black md:mt-0">
               <svg
@@ -347,7 +367,7 @@ export default function ProductDetails({
                 Mileage
               </p>
               <p className="undefined text-base/normal font-light tracking-wide text-black">
-                {mileage} miles
+                {formattedMiles} miles
               </p>
             </div>
           </div>
