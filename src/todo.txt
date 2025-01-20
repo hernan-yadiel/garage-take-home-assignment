@@ -1,5 +1,0 @@
-const relatedListingsResponse = await fetch(
-    `https://garage-backend.onrender.com/listings/related/${listingId}`
-)
-const relatedListings: { listingPreviews: ListingPreview[] } =
-    await relatedListingsResponse.json()
